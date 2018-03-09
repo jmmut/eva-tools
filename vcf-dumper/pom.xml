@@ -10,15 +10,78 @@
     <packaging>pom</packaging>
 
     <parent>
-        <groupId>uk.ac.ebi.eva</groupId>
-        <artifactId>eva-tools</artifactId>
-        <version>0.3-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.6.RELEASE</version>
     </parent>
 
     <modules>
         <module>vcf-dumper-lib</module>
         <module>vcf-dumper-cli</module>
-        <module>vcf-dumper-ws</module>
     </modules>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <variation-commons.version>0.5</variation-commons.version>
+    </properties>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- Travis build workaround -->
+                    <argLine>-Xmx1024m</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>eva-releases</id>
+            <url>https://oss.jfrog.org/artifactory/libs-release</url>
+        </repository>
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>eva-snapshots</id>
+            <url>https://oss.jfrog.org/artifactory/libs-snapshot</url>
+        </repository>
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>broadinstitute-snapshots</id>
+            <url>https://broadinstitute.jfrog.io/broadinstitute/simple/libs-snapshot-local</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>eva-snapshots</id>
+            <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+        </snapshotRepository>
+        <repository>
+            <id>eva-releases</id>
+            <url>https://oss.jfrog.org/artifactory/oss-release-local</url>
+        </repository>
+    </distributionManagement>
 </project>
