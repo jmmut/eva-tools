@@ -30,8 +30,8 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 
 import uk.ac.ebi.eva.commons.mongodb.services.VariantSourceService;
 import uk.ac.ebi.eva.commons.mongodb.services.VariantWithSamplesAndAnnotationsService;
-import uk.ac.ebi.eva.vcfdump.QueryParams;
-import uk.ac.ebi.eva.vcfdump.VariantExporterController;
+import uk.ac.ebi.eva.vcfdump.lib.QueryParams;
+import uk.ac.ebi.eva.vcfdump.lib.VariantExporterController;
 import uk.ac.ebi.eva.vcfdump.server.configuration.DBAdaptorConnector;
 import uk.ac.ebi.eva.vcfdump.server.configuration.MultiMongoDbFactory;
 

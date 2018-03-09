@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.ac.ebi.eva.vcfdump;
+package uk.ac.ebi.eva.vcfdump.cli;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
@@ -26,6 +26,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import uk.ac.ebi.eva.commons.mongodb.services.VariantSourceService;
 import uk.ac.ebi.eva.commons.mongodb.services.VariantWithSamplesAndAnnotationsService;
+import uk.ac.ebi.eva.vcfdump.lib.QueryParams;
+import uk.ac.ebi.eva.vcfdump.lib.VariantExporterController;
 
 import java.util.Properties;
 

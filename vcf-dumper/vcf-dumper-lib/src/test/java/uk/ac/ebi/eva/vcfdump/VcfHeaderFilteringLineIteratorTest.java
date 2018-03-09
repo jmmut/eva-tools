@@ -18,6 +18,8 @@ package uk.ac.ebi.eva.vcfdump;
 import org.junit.Before;
 import org.junit.Test;
 
+import uk.ac.ebi.eva.vcfdump.lib.VcfHeaderFilteringLineIterator;
+
 import java.io.InputStream;
 import java.util.Iterator;
 

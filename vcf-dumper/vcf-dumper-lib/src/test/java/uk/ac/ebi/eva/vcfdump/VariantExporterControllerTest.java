@@ -42,6 +42,8 @@ import uk.ac.ebi.eva.commons.mongodb.entities.subdocuments.AnnotationIndexMongo;
 import uk.ac.ebi.eva.commons.mongodb.repositories.VariantRepository;
 import uk.ac.ebi.eva.commons.mongodb.services.VariantSourceService;
 import uk.ac.ebi.eva.commons.mongodb.services.VariantWithSamplesAndAnnotationsService;
+import uk.ac.ebi.eva.vcfdump.lib.QueryParams;
+import uk.ac.ebi.eva.vcfdump.lib.VariantExporterController;
 
 import java.io.BufferedReader;
 import java.io.File;

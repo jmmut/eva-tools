@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import uk.ac.ebi.eva.commons.core.models.Region;
 import uk.ac.ebi.eva.commons.mongodb.services.VariantWithSamplesAndAnnotationsService;
-import uk.ac.ebi.eva.vcfdump.QueryParams;
+import uk.ac.ebi.eva.vcfdump.lib.QueryParams;
 
 import java.util.ArrayList;
 import java.util.Arrays;

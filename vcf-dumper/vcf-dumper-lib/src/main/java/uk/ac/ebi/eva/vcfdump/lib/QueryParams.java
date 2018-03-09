@@ -1,4 +1,4 @@
-package uk.ac.ebi.eva.vcfdump;
+package uk.ac.ebi.eva.vcfdump.lib;
 
 import java.util.Arrays;
 import java.util.Collections;

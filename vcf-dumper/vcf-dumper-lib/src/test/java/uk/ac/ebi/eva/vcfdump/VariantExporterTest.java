@@ -40,6 +40,8 @@ import uk.ac.ebi.eva.commons.mongodb.filter.VariantRepositoryFilter;
 import uk.ac.ebi.eva.commons.mongodb.services.AnnotationMetadataNotFoundException;
 import uk.ac.ebi.eva.commons.mongodb.services.VariantSourceService;
 import uk.ac.ebi.eva.commons.mongodb.services.VariantWithSamplesAndAnnotationsService;
+import uk.ac.ebi.eva.vcfdump.lib.QueryParams;
+import uk.ac.ebi.eva.vcfdump.lib.VariantExporter;
 
 import java.io.IOException;
 import java.util.ArrayList;

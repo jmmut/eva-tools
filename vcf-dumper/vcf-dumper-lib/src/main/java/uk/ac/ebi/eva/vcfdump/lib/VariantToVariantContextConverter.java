@@ -16,7 +16,7 @@
  *
  */
 
-package uk.ac.ebi.eva.vcfdump;
+package uk.ac.ebi.eva.vcfdump.lib;
 
 import htsjdk.variant.variantcontext.Allele;
 import htsjdk.variant.variantcontext.Genotype;

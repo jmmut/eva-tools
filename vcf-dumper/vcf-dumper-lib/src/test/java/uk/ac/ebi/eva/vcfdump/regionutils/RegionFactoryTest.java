@@ -32,7 +32,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import uk.ac.ebi.eva.commons.core.models.Region;
 import uk.ac.ebi.eva.commons.mongodb.services.VariantWithSamplesAndAnnotationsService;
 import uk.ac.ebi.eva.vcfdump.MongoRepositoryTestConfiguration;
-import uk.ac.ebi.eva.vcfdump.QueryParams;
+import uk.ac.ebi.eva.vcfdump.lib.QueryParams;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
