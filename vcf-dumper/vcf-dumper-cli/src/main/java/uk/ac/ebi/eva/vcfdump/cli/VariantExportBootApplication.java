@@ -15,21 +15,13 @@
  */
 package uk.ac.ebi.eva.vcfdump.cli;
 
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.ParameterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import uk.ac.ebi.eva.commons.mongodb.services.VariantSourceService;
-import uk.ac.ebi.eva.commons.mongodb.services.VariantWithSamplesAndAnnotationsService;
-import uk.ac.ebi.eva.vcfdump.lib.QueryParams;
 import uk.ac.ebi.eva.vcfdump.lib.VariantExporterController;
-
-import java.util.Properties;
 
 /**
  * The variant exporter tool allows to dump a valid VCF from a query against
@@ -43,56 +35,11 @@ public class VariantExportBootApplication implements CommandLineRunner {
 
     private static final Logger logger = LoggerFactory.getLogger(VariantExportBootApplication.class);
 
-    VariantExportCommand command;
-
-    JCommander commander;
-
-    @Autowired
-    private VariantSourceService variantSourceService;
-    @Autowired
-    private VariantWithSamplesAndAnnotationsService variantService;
-
-    public VariantExportBootApplication() {
-        command = new VariantExportCommand();
-        commander = new JCommander(command);
-    }
-
-    public void validateArguments(String[] args) throws ParameterException {
-        commander.parse(args);
-    }
-
-    public void help() {
-        commander.usage();
-    }
 
     @Override
     public void run(String[] args) throws Exception {
-        try {
-            validateArguments(args);
-        } catch (ParameterException e) {
-            logger.error("Invalid argument: {}", e.getMessage());
-            help();
-            System.exit(1);
-        }
-
-        Properties evaProperties = new Properties();
-        evaProperties.load(VariantExportBootApplication.class.getResourceAsStream("/eva.properties"));
-
-        try {
-            new VariantExporterController(
-                    command.database,
-                    variantSourceService,
-                    variantService,
-                    command.studies,
-                    command.files,
-                    command.outdir,
-                    evaProperties,
-                    new QueryParams()).run();
-        } catch (Exception e) {
-            logger.error("Unsuccessful VCF export: {}", e.getMessage());
-            logger.debug("Exception details: ", e);
-            System.exit(1);
-        }
+        VariantExporterController variantExporterController = new VariantExporterController("example_db");
+        variantExporterController.run();
     }
 
     public static void main(String[] args) {
